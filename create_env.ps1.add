@@ -1,0 +1,9 @@
+# Create db 
+switch ($config.env_type) {
+    "on-premises" { 
+        . "$($rootPath)/src/install_couchbase.ps1" $ConfigPath
+     }
+     Default {
+         Write-Host "Platform type not specified in config file. Please add 'env_type' to config."
+     }
+}
